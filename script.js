@@ -16,6 +16,7 @@ let listener1 = (event) =>{
 
      let Idcell=document.createElement("td");
      Idcell.innerText=index;
+
      
      let namecell=document.createElement("td");
      namecell.innerText=name;
@@ -82,3 +83,38 @@ let listener1 = (event) =>{
 }
 
 form.addEventListener("submit",listener1);
+
+let  Searchelement = document.getElementById("search");
+let tr =document.getElementsByTagName("tr");
+
+let listener2= (event)=>{
+
+    event.preventDefault();
+    let filter= Searchelement.value;
+    // filtration on name ,email and degree
+    for(let i=1;i<tr.length;i++)
+    {
+        let Sname=tr[i].getElementsByTagName("td")[1];
+        let Semail=tr[i].getElementsByTagName("td")[2];
+        let Sdegree=tr[i].getElementsByTagName("td")[5];
+
+
+        if(Sname.innerText.includes(filter))
+        {
+            tr[i].style.display="";
+        }
+         else if(Semail.innerText.includes(filter))
+        {
+            tr[i].style.display="";
+        }
+        else if(Sdegree.innerText.includes(filter))
+        {
+            tr[i].style.display="";
+        }
+        else{
+            tr[i].style.display="none";
+        }
+    }
+}
+
+Searchelement.addEventListener("keyup", listener2);
