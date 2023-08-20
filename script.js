@@ -53,6 +53,7 @@ let listener1 = (event) =>{
      tablerow.append( Idcell,namecell,emailcell,agecell,gpacell,degreecell);
      table.appendChild(tablerow);
      index++;
+     form.reset();
 
     //   Adding eventlistnere to edit and delet button
      
@@ -78,7 +79,11 @@ let listener1 = (event) =>{
 
      });
      delet.addEventListener("click",() =>{
-        tablerow.remove();
+        const confirmation = prompt("Are You Want to delete it?");
+        if(confirmation.toLowerCase()=== "yes" ){
+            tablerow.remove();
+            alert("successfully deleted");
+        }
      });
 }
 
